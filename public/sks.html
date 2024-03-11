@@ -10,13 +10,17 @@
 <body>
 <!-- 높이와 너비가 지정된 Dom 을 생성합니다 -->
 <div id="main" style="width: 3dimensions 00px;height:200px;"></div>
-<div id="main1" style="width: 500px;height:200px;"></div>
-<div id="main2" style="width: 300px;height:200px;"></div>
+<!-- <div id="main1" style="width: 500px;height:200px;"></div>
+<div id="main2" style="width: 300px;height:200px;"></div> -->
+<div id="main3" style="width: 400px;height:300px;"></div>
+<div id="main4" style="width: 400px;height:300px;"></div>
     <script type="text/javascript">
         // DOM을 준비하고 echart 객체를 만듭니다.
         var myChart = echarts.init(document.getElementById('main'));
         // var myChart1 = echarts.init(document.getElementById('main1'));
         // var myChart2 = echarts.init(document.getElementById('main2'));
+        var myChart3 = echarts.init(document.getElementById('main3'));
+        var myChart4 = echarts.init(document.getElementById('main4'));
 
         // 차트 속성과 데이터를 지정합니다.
         var option1 = {
@@ -227,10 +231,352 @@
                 }
             });
 
+            var option4 = {
+                tooltip: {
+                    trigger: 'item',
+                    axisPointer: {
+                    // Use axis to trigger tooltip
+                    type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+                    }
+                },
+                legend: {},
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                yAxis : {
+                    type: 'value'
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['생산대수', '지연전월', '지연금월']
+                },
+                series: [
+                    {
+                    name: '생산대수',
+                    type: 'bar',
+                    stack: 'total',
+                    label: {
+                        show: true
+                    },
+                    emphasis: {
+                        focus: 'series'
+                    },
+                    data: [70, 0, 0, 0]
+                    },
+                    {
+                    name: '지연전월',
+                    type: 'bar',
+                    stack: 'total',
+                    label: {
+                        show: true
+                    },
+                    emphasis: {
+                        focus: 'series'
+                    },
+                    data: [0, 10, 20, 30]
+                    },
+                    {
+                    name: 'Affiliate Ad',
+                    type: 'bar',
+                    stack: 'total',
+                    label: {
+                        show: true
+                    },
+                    emphasis: {
+                        focus: 'series'
+                    },
+                    data: [0, 18, 15]
+                    },
+                    {
+                    name: 'Video Ad',
+                    type: 'bar',
+                    stack: 'total',
+                    label: {
+                        show: true
+                    },
+                    emphasis: {
+                        focus: 'series'
+                    },
+                    data: [0, 30, 20]
+                    },
+                    {
+                    name: 'Search Engine',
+                    type: 'bar',
+                    stack: 'total',
+                    label: {
+                        show: true
+                    },
+                    emphasis: {
+                        focus: 'series'
+                    },
+                    data: [0, 20, 10]
+                    }
+                ]
+                };
+
+                var option5 = {
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                        type: 'shadow'
+                        }
+                    },
+                    legend: {},
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    xAxis: [
+                        {
+                        type: 'category',
+                        data: ['HHI']
+                        }
+                    ],
+                    yAxis: [
+                        {
+                        type: 'value'
+                        }
+                    ],
+                    series: [
+                        {
+                        name: '생산대수',
+                        type: 'bar',
+                        label: {show: true},
+                        stack: '생산대수',
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        data: [70]
+                        },
+                        {
+                        name: '10일이하',
+                        type: 'bar',
+                        label: {show: true},
+                        stack: '지연전월',
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        data: [3]
+                        },
+                        {
+                        name: '10일초과',
+                        type: 'bar',
+                        label: {show: true},
+                        stack: '지연전월',
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        data: [8]
+                        },
+                        {
+                        name: '20일초과',
+                        type: 'bar',
+                        label: {show: true},
+                        stack: '지연전월',
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        data: [10]
+                        },
+                        {
+                        name: '30일초과',
+                        type: 'bar',
+                        label: {show: true},
+                        stack: '지연전월',
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        data: [10]
+                        },
+                        {
+                        name: '10일이하',
+                        type: 'bar',
+                        label: {show: true},
+                        stack: '지연금월',
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        data: [10]
+                        },
+                        {
+                        name: '10일초과',
+                        type: 'bar',
+                        label: {show: true},
+                        stack: '지연금월',
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        data: [15]
+                        },
+                        {
+                        name: '20일초과',
+                        type: 'bar',
+                        label: {show: true},
+                        stack: '지연금월',
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        data: [20]
+                        },
+                        {
+                        name: '30일초과',
+                        type: 'bar',
+                        label: {show: true},
+                        stack: '지연금월',
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        data: [23]
+                        }
+                    ]
+                    };
+
+                    var option6 = {
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                            type: 'shadow'
+                            }
+                        },
+                        legend: {},
+                        grid: {
+                            left: '3%',
+                            right: '4%',
+                            bottom: '3%',
+                            containLabel: true
+                        },
+                        xAxis: [
+                            {
+                            type: 'category',
+                            data: ['HHI']
+                            }
+                        ],
+                        yAxis: [
+                            {
+                            type: 'value'
+                            }
+                        ],
+                        series: [
+                            {
+                            name: '생산대수',
+                            type: 'bar',
+                            label: {
+                                show: true
+                            },
+                            stack: '생산대수',
+                            emphasis: {
+                                focus: 'series'
+                            },
+                            data: [70]
+                            },
+                            {
+                            name: '생산대수SUM',
+                            type: 'bar',
+                            legend:{show: false},
+                            label: {
+                                show: true,
+                                position: 'top'
+                            },
+                            stack: '생산대수',
+                            emphasis: {
+                                focus: 'series'
+                            },
+                            data: [0]
+                            },
+                            {
+                            name: '10일이하',
+                            type: 'bar',
+                            label: {show: true},
+                            stack: '지연전월',
+                            emphasis: {
+                                focus: 'series'
+                            },
+                            data: [3]
+                            },
+                            {
+                            name: '10일초과',
+                            type: 'bar',
+                            label: {show: true},
+                            stack: '지연전월',
+                            emphasis: {
+                                focus: 'series'
+                            },
+                            data: [8]
+                            },
+                            {
+                            name: '20일초과',
+                            type: 'bar',
+                            label: {show: true},
+                            stack: '지연전월',
+                            emphasis: {
+                                focus: 'series'
+                            },
+                            data: [10]
+                            },
+                            {
+                            name: '30일초과',
+                            type: 'bar',
+                            label: {show: true},
+                            stack: '지연전월',
+                            emphasis: {
+                                focus: 'series'
+                            },
+                            data: [10]
+                            },
+                            {
+                            name: '10일이하',
+                            type: 'bar',
+                            label: {show: true},
+                            stack: '지연금월',
+                            emphasis: {
+                                focus: 'series'
+                            },
+                            data: [10]
+                            },
+                            {
+                            name: '10일초과',
+                            type: 'bar',
+                            label: {show: true},
+                            stack: '지연금월',
+                            emphasis: {
+                                focus: 'series'
+                            },
+                            data: [15]
+                            },
+                            {
+                            name: '20일초과',
+                            type: 'bar',
+                            label: {show: true},
+                            stack: '지연금월',
+                            emphasis: {
+                                focus: 'series'
+                            },
+                            data: [20]
+                            },
+                            {
+                            name: '30일초과',
+                            type: 'bar',
+                            label: {show: true},
+                            stack: '지연금월',
+                            emphasis: {
+                                focus: 'series'
+                            },
+                            data: [23]
+                            }
+                        ]
+                        };
+
         // 위에서 설정한 속성을 차트에 반영합니다.
         myChart.setOption(option1);
-        myChart1.setOption(option2);
-        myChart2.setOption(option3);
+        // myChart1.setOption(option2);
+        // myChart2.setOption(option3);
+        myChart3.setOption(option4);
+        myChart4.setOption(option5);
     </script>
     </body>
 </html>
