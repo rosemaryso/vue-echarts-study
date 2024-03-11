@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script>
+  var grid = new tui.Grid({
+      el: document.getElementById('grid'),
+      data: [],
+      bodyHeight: 500,
+      columns: [
+        {
+          header: 'Name',
+          name: 'name',
+          filter: { type: 'text', showApplyBtn: true, showClearBtn: true }
+        },
+        {
+          header: 'Artist',
+          name: 'artist',
+          filter: 'select'
+        },
+        {
+          header: 'Price',
+          name: 'price',
+          filter: 'number'
+        },
+        {
+          header: 'Release',
+          name: 'release',
+          filter: {
+            type: 'date',
+            options: {
+              format: 'yyyy.MM.dd'
+            }
+          }
+        },
+        {
+          header: 'Genre',
+          name: 'genre',
+          filter: {
+            type: 'text',
+            operator: 'OR'
+          }
+        }
+      ]
+    });
+  
+</script>
+<body>
+  <div id="wrap">
+      <div>
+        <div id="grid" style="width: 800px"></div>
+        <button type="button"></button>
+        <v-btn>test</v-btn>
+      </div>
+  </div>
+  
+</body>
+</html>

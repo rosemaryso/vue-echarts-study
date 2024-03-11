@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 다운받은 echarts 파일 -->
+    <!-- <script src="echarts.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+    <style>
+        .sks {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<!-- 높이와 너비가 지정된 Dom 을 생성합니다 -->
+<div id="main" style="height:200px;"></div>
+<div id="main1" style="width:1000px;height:200px;"></div>
+<div id="main2" style="height:200px;"></div>
+    <script type="text/javascript">
+        // DOM을 준비하고 echart 객체를 만듭니다.
+        var myChart = echarts.init(document.getElementById('main'));
+        var myChart1 = echarts.init(document.getElementById('main1'));
+        var myChart2 = echarts.init(document.getElementById('main2'));
+
+        // 차트 속성과 데이터를 지정합니다.
+        var option1 = {
+            title: {
+                text: 'Referer of a Website',
+                subtext: 'Fake Data',
+                left: 'right'
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            legend: {
+                orient: 'horizontal',
+                left: 'left'
+            },
+            series: [
+                {
+                name: 'Access From',
+                type: 'pie',
+                radius: '50%',
+                data: [
+                    { value: 350, name: 'Search Engine' },
+                    { value: 735, name: 'Direct' },
+                    { value: 580, name: 'Email' },
+                    { value: 484, name: 'Union Ads' },
+                    { value: 300, name: 'Video Ads' }
+                ],
+                emphasis: {
+                    focus: 'series',
+                    itemStyle: {
+                    shadowBlur: 100,
+                    shadowOffsetX: 50,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+                }
+            ]
+            };
+
+            var option2 = {
+                title: {
+                    text: 'title text',
+                    subtext: 'title subtext',
+                    left: 'left'
+                },
+                tooltip: {
+                    trigger: 'item'
+                },
+
+                data: [
+                    { value: 350, name: 'Search Engine' },
+                    { value: 735, name: 'Direct' },
+                    { value: 580, name: 'Email' },
+                    { value: 484, name: 'Union Ads' },
+                    { value: 300, name: 'Video Ads' }
+                ],
+                dataset: [
+                    {
+                    source: [
+                        ['name', 'value', 'Price', 'Year'],
+                        ['Cake', 123, 32, 2011],
+                        ['Cereal', 231, 14, 2011],
+                        ['Tofu', 235, 5, 2011],
+                        ['Dumpling', 341, 25, 2011],
+                        ['Biscuit', 122, 29, 2011],
+                        ['Cake', 143, 30, 2012],
+                        ['Cereal', 201, 19, 2012],
+                        ['Tofu', 255, 7, 2012],
+                        ['Dumpling', 241, 27, 2012],
+                        ['Biscuit', 102, 34, 2012],
+                        ['Cake', 153, 28, 2013],
+                        ['Cereal', 181, 21, 2013],
+                        ['Tofu', 395, 4, 2013],
+                        ['Dumpling', 281, 31, 2013],
+                        ['Biscuit', 92, 39, 2013],
+                        ['Cake', 223, 29, 2014],
+                        ['Cereal', 211, 17, 2014],
+                        ['Tofu', 345, 3, 2014],
+                        ['Dumpling', 211, 35, 2014],
+                        ['Biscuit', 72, 24, 2014]
+                    ]
+                    },
+                    {
+                    transform: {
+                        type: 'filter',
+                        config: { dimension: 'Year', value: 2011 }
+                    }
+                    },
+                    {
+                    transform: {
+                        type: 'filter',
+                        config: { dimension: 'Year', value: 2012 }
+                    }
+                    },
+                    {
+                    transform: {
+                        type: 'filter',
+                        config: { dimension: 'Year', value: 2013 }
+                    }
+                    },
+                    {
+                    transform: {
+                        type: 'filter',
+                        config: { dimension: 'Year', value: 2014 }
+                    }
+                    }
+                ],
+                series: [
+                    {
+                    type: 'pie',
+                    radius: 50,
+                    center: ['50%', '0%'],
+                    datasetIndex: 1
+                    },
+                    {
+                    type: 'pie',
+                    radius: 50,
+                    center: ['50%', '25%'],
+                    datasetIndex: 2
+                    },
+                    {
+                    type: 'pie',
+                    radius: 50,
+                    center: ['50%', '50%'],
+                    datasetIndex: 3
+                    },
+                    {
+                    type: 'pie',
+                    radius: 50,
+                    center: ['50%', '75%'],
+                    datasetIndex: 4
+                    }
+                ],
+                // Optional. Only for responsive layout:
+                media: [
+                    {
+                    query: { minAspectRatio: 1 },
+                    option: {
+                        series: [
+                        { center: ['20%', '50%'] },
+                        { center: ['40%', '50%'] },
+                        { center: ['60%', '50%'] },
+                        { center: ['80%', '50%'] }
+                        ]
+                    }
+                    }
+                ]
+                };
+        
+                var option3 = {
+                legend: {},
+                tooltip: {
+                trigger: 'axis',
+                showContent: false
+                },
+                dataset: {
+                source: [
+                    ['product', '2012', '2013', '2014', '2015', '2016', '2017'],
+                    ['Milk Tea', 56.5, 82.1, 88.7, 70.1, 53.4, 85.1],
+                    ['Matcha Latte', 51.1, 51.4, 55.1, 53.3, 73.8, 68.7],
+                    ['Cheese Cocoa', 40.1, 62.2, 69.5, 36.4, 45.2, 32.5],
+                    ['Walnut Brownie', 25.2, 37.1, 41.2, 18, 33.9, 49.1]
+                ]
+                },
+                xAxis: { type: 'category' },
+                yAxis: { },
+                grid: { top: '100%' },
+                series: [
+                {
+                    type: 'pie',
+                    id: 'bar1'
+                },
+                {
+                    type: 'pie',
+                    id: 'bar2'
+                },
+                {
+                    type: 'pie',
+                    id: 'bar3'
+                },
+                {
+                    type: 'bar',
+                    id: 'bar4'
+                },
+                {
+                    type: 'bar',
+                    id: 'bar5'
+                }
+                ]
+            };
+          
+
+        // 위에서 설정한 속성을 차트에 반영합니다.
+        myChart.setOption(option1);
+        myChart1.setOption(option2);
+        myChart2.setOption(option3);
+    </script>
+    </body>
+</html> 
